@@ -8,12 +8,15 @@ public class PlayerController : MonoBehaviour
     [Header("CONTROLS")]
     public float speed;
     private Rigidbody rb;
+    public Joystick joystick;
+  
 
     [Header("UI")]
     public Text countText;
     public Text winText;
     public GameObject Panel;
     private int count;
+    public GameObject Joystick_Canvas;
 
     //start_Android specifics floats
     private float deltaX, deltaZ;
@@ -24,6 +27,13 @@ public class PlayerController : MonoBehaviour
     {
         winText.enabled = false;
         Panel.SetActive(false);
+        Joystick_Canvas.SetActive(false);
+
+#if UNITY_ANDROID
+
+        Joystick_Canvas.SetActive(true);
+#endif
+
     }
 
 
@@ -47,38 +57,19 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 
         rb.AddForce(movement*speed);
-    #endif
+#endif
 
-    #if UNITY_ANDROID
-         
-    
-        if (Input.touchCount>0)
-        {
-            Touch touch = Input.GetTouch(0);
-
-            Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    deltaX = touchPos.x - transform.position.x;
-                    deltaZ = touchPos.y - transform.position.z;
-                    break;
-
-                case TouchPhase.Moved:
-                    rb.MovePosition(new Vector3(touchPos.x - deltaX, 0, touchPos.y - deltaZ));
-                    break;
-
-                case TouchPhase.Ended:
-                    rb.velocity = Vector3.zero;
-                    break;
+#if UNITY_ANDROID
 
 
-            }
+        float moveHorizontalA = joystick.Horizontal;
+        float moveVerticalA = joystick.Vertical;
 
-        }
+        Vector3 movementA = new Vector3(moveHorizontalA, 0, moveVerticalA);
 
-    #endif
+        rb.AddForce(movementA * speed);
+
+#endif
     }
 
 

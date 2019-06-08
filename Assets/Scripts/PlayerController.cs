@@ -18,21 +18,17 @@ public class PlayerController : MonoBehaviour
     private int count;
     public GameObject Joystick_Canvas;
 
-    //start_Android specifics floats
-    private float deltaX, deltaZ;
+    [Header("TIMER")]
+    public float timestart;
+    public Text TimeDisplay;
+    public Text BestTimeDisplay;
 
-    //end_Android specifics floats
+    bool timeActive = true;
 
     void Awake()
     {
         winText.enabled = false;
         Panel.SetActive(false);
-        Joystick_Canvas.SetActive(false);
-
-#if UNITY_ANDROID
-
-        Joystick_Canvas.SetActive(true);
-#endif
 
     }
 
@@ -40,45 +36,51 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
+        //SCore settings
         count = 0;
         SetCountText();
-        
 
 
+        //timer settings
+        TimeDisplay.text = "TIME :" + timestart.ToString("F2");
+        BestTimeDisplay.text = PlayerPrefs.GetFloat("BestTime", 0).ToString("F2");
     }
 
 
     void FixedUpdate()
     {
-    #if UNITY_EDITOR
+
+#if UNITY_EDITOR
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 
-        rb.AddForce(movement*speed);
+        rb.AddForce(movement * speed);
 #endif
+        if (timeActive)
+        {
+            timestart += Time.deltaTime;
+            TimeDisplay.text = "TIME :"+ timestart.ToString("F2");
 
-#if UNITY_ANDROID
-
-
-        float moveHorizontalA = joystick.Horizontal;
-        float moveVerticalA = joystick.Vertical;
-
-        Vector3 movementA = new Vector3(moveHorizontalA, 0, moveVerticalA);
-
-        rb.AddForce(movementA * speed);
-
-#endif
+            if (timestart > PlayerPrefs.GetFloat("BestTime", 0))
+            {
+                PlayerPrefs.SetFloat("BestTime",timestart);
+                BestTimeDisplay.text = timestart.ToString("F2");
+            }
+        }
     }
 
+    //to collect the pick-ups (with trigger colliders)
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pick Up"))
         {
             other.gameObject.SetActive(false);
-            count = count + 1;
+            count = count +1;
             SetCountText();
         }
     }
@@ -87,10 +89,20 @@ public class PlayerController : MonoBehaviour
     {
         countText.text = "Count : " + count.ToString();
 
-        if (count >= 12)
+        if (count >= 10)
         {
             winText.enabled = true;
             Panel.SetActive(true);
+            timeActive = false;
         }
     }
+
+       
+    
+
+    //adjust speed function for a slider
+    ///public void Adjustspeed(float newSpeed)
+    //{
+        //speed = newSpeed;
+    //}
 }

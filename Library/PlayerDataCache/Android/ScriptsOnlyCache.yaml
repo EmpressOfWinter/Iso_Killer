@@ -8,8 +8,6 @@ ScriptsOnlyBuild:
     - P_Joystick
     - PlayerController
     - Rotator
-    UnityEditor.TestRunner.dll:
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -842,4 +840,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level 01.unity
-  playerPath: C:/Users/Megan/Documents/GitHub/Iso_Killer/Iso_V2.apk
+  playerPath: C:/Users/Megan/Documents/GitHub/Iso_Killer/Iso_V3_Cookies.apk

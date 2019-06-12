@@ -69,6 +69,10 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\SCRIPT_Level03\BombRotator.cs" />
+    <Compile Include="Assets\SCRIPT_Level03\CookieRotator.cs" />
+    <Compile Include="Assets\SCRIPT_Level03\DropSpawner.cs" />
+    <Compile Include="Assets\SCRIPT_Level03\Player_Glass.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ChickController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -79,6 +83,8 @@
     <Compile Include="Assets\Scripts\red cube\GroundMovement.cs" />
     <Compile Include="Assets\Scripts\red cube\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\Wobble.cs" />
+    <None Include="Assets\Scripts\Liquid.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Megan/Documents/GitHub/Iso_Killer/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public GameObject player;
     private Vector3 offset;
+    public float LerpSpeed;
 
 
     // Start is called before the first frame update
@@ -17,6 +18,6 @@ public class CameraController : MonoBehaviour
     
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        transform.position = Vector3.Lerp(transform.position,player.transform.position+offset, LerpSpeed);
     }
 }

@@ -1,23 +1,22 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - CameraController
-    - FixedJoystick
-    - GameManager
-    - P_Accelerometer
-    - P_Joystick
-    - PlayerController
-    - Rotator
+    - BombRotator
+    - CookieRotator
+    - DropSpawner
+    - Player_Glass
+    - Wobble
+    UnityEditor.TestRunner.dll:
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/Level 01.unity:
+    Assets/Scenes/Level 03.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -38,55 +37,47 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9324}
+      Script: {instanceID: 9328}
     - Class: 114
-      Script: {instanceID: 9326}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9332}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9338}
-    - Class: 114
-      Script: {instanceID: 9346}
-    - Class: 114
-      Script: {instanceID: 9382}
+      Script: {instanceID: 9348}
     - Class: 114
       Script: {instanceID: 9384}
     - Class: 114
-      Script: {instanceID: 9756}
+      Script: {instanceID: 9386}
     - Class: 114
-      Script: {instanceID: 9996}
+      Script: {instanceID: 9770}
     - Class: 114
-      Script: {instanceID: 10144}
+      Script: {instanceID: 10158}
     - Class: 114
-      Script: {instanceID: 10148}
+      Script: {instanceID: 12270}
     - Class: 114
-      Script: {instanceID: 10162}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 10254}
-    - Class: 114
-      Script: {instanceID: 10618}
+      Script: {instanceID: 13168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
-    - Class: 135
-      Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -95,8 +86,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -599,10 +588,16 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: 83e769eee07fc231384c812eedbb8224
+      Hash: 1cb063b26d8e5d1fb5e065b2cbaf2884
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: 075b8da1794fe37ac9c396bbd789f35b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Wobble
   - hash:
       serializedVersion: 2
       Hash: ce669872a2be11bc686ea22961d8a3bb
@@ -743,6 +738,12 @@ ScriptsOnlyBuild:
     className: FixedJoystick
   - hash:
       serializedVersion: 2
+      Hash: 5b29aa9571b7a3ff89c5f16e9f683f3b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player_Glass
+  - hash:
+      serializedVersion: 2
       Hash: c75cd2396665ecb09294180ac19d9cd2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -837,7 +838,25 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
+  - hash:
+      serializedVersion: 2
+      Hash: 9623fb2567f694fc4b685845e6731d04
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DropSpawner
+  - hash:
+      serializedVersion: 2
+      Hash: 5d4237c630df32f32be6b75ed03e4757
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BombRotator
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CookieRotator
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Level 01.unity
-  playerPath: C:/Users/Megan/Documents/GitHub/Iso_Killer/Iso_V3_Cookies.apk
+  - Assets/Scenes/Level 03.unity
+  playerPath: C:/Users/Megan/Documents/GitHub/Iso_Killer/Iso_Milk_V1.apk

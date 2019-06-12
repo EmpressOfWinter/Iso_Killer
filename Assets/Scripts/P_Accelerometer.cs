@@ -16,8 +16,9 @@ public class P_Accelerometer : MonoBehaviour
     //start_Android specifics floats
     private float deltaX, deltaZ;
     private bool Joystick_Active;
-   
-    
+
+    private float offsetHorizontal;
+    private float offsetVertical;
 
 
     // Start is called before the first frame update
@@ -28,6 +29,11 @@ public class P_Accelerometer : MonoBehaviour
 
         
     }
+    void OnEnable()
+    {
+        offsetHorizontal = Input.acceleration.x;
+        offsetVertical = Input.acceleration.y;
+    }
 
     // Update is called once per frame
     void Update()
@@ -35,13 +41,13 @@ public class P_Accelerometer : MonoBehaviour
         Joystick_Canvas.SetActive(false);
 
 
-        float And_moveHorizontal = Input.acceleration.x;
-        float And_moveVertical = Input.acceleration.y;
+        float And_moveHorizontal = Input.acceleration.x - offsetHorizontal;
+        float And_moveVertical = Input.acceleration.y - offsetVertical;
 
         Vector3 And_tilt = new Vector3(And_moveHorizontal, And_moveVertical, 0);
 
         And_tilt = Quaternion.Euler(90, 0, 0) * And_tilt;
-
+        
 
         rb.AddForce(And_tilt * speed);
     }

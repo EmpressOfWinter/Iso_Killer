@@ -14,6 +14,8 @@ public class Player_Glass : MonoBehaviour
     private float objectWidth;
     private float objectHeight;
 
+    public DropSpawner EndGame_Bool;
+    public CameraShake ShakeCam; 
 
     [Header("UI")]
     public Text countText;
@@ -23,7 +25,7 @@ public class Player_Glass : MonoBehaviour
     
 
     //FOR ANDROID :
-    private float offsetHorizontal;
+    private static float offsetHorizontal;
 
 
     
@@ -32,15 +34,27 @@ public class Player_Glass : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        offsetHorizontal = Input.acceleration.x;
 
+        //set the neutral point for the accelerometer :) 
+        if (Player_Glass.offsetHorizontal == float.MaxValue)
+        {
+            Player_Glass.offsetHorizontal = UnityEngine.Input.acceleration.x;
+        }
+        
 
+        //set the score counter
         count = 0;
         countText.text = "Count : " + count.ToString();
 
+        //clamp the glass to the screen size
         screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
         objectWidth = transform.GetComponent<Collider>().bounds.extents.x; //extents = size of width / 2
         objectHeight = transform.GetComponent<Collider>().bounds.extents.y; //extents = size of height / 2
+
+        //activate the dropspawner
+        GameObject Spawner = GameObject.FindGameObjectWithTag("Respawn");
+        EndGame_Bool = Spawner.GetComponent<DropSpawner>();
+        EndGame_Bool.EndGame_Active = false;
     }
 
     // Update is called once per frame
@@ -80,9 +94,30 @@ public class Player_Glass : MonoBehaviour
             SetCountText();
         } else if (other.gameObject.CompareTag("Obstacle"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameObject Spawner = GameObject.FindGameObjectWithTag("Respawn");
+            EndGame_Bool = Spawner.GetComponent<DropSpawner>();
+            EndGame_Bool.EndGame_Active = true;
+
+            GameObject CamShake = GameObject.FindGameObjectWithTag("MainCamera");
+            ShakeCam = CamShake.GetComponent<CameraShake>();
+            ShakeCam.ShakeIt();
+            
+
+            Handheld.Vibrate();
+            StartCoroutine(EndGame());
+            
         }
+    } 
+
+    IEnumerator EndGame()
+    {
+        
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
+
+
 
 
     void SetCountText()
@@ -93,6 +128,7 @@ public class Player_Glass : MonoBehaviour
         {
             winText.enabled = true;
             Panel.SetActive(true);
+            
            
         }
     }

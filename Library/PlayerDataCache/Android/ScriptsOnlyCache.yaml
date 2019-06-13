@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BombRotator
+    - CameraShake
     - CookieRotator
     - DropSpawner
     - Player_Glass
@@ -46,27 +47,29 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9328}
+      Script: {instanceID: 9246}
     - Class: 114
-      Script: {instanceID: 9334}
+      Script: {instanceID: 9330}
     - Class: 114
-      Script: {instanceID: 9340}
+      Script: {instanceID: 9336}
     - Class: 114
-      Script: {instanceID: 9348}
+      Script: {instanceID: 9342}
     - Class: 114
-      Script: {instanceID: 9384}
+      Script: {instanceID: 9350}
     - Class: 114
       Script: {instanceID: 9386}
     - Class: 114
-      Script: {instanceID: 9770}
+      Script: {instanceID: 9388}
     - Class: 114
-      Script: {instanceID: 10158}
+      Script: {instanceID: 9772}
     - Class: 114
-      Script: {instanceID: 12270}
+      Script: {instanceID: 9778}
     - Class: 114
-      Script: {instanceID: 12374}
+      Script: {instanceID: 10162}
     - Class: 114
-      Script: {instanceID: 13168}
+      Script: {instanceID: 10178}
+    - Class: 114
+      Script: {instanceID: 14160}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -118,6 +121,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 5d4237c630df32f32be6b75ed03e4757
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BombRotator
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -600,6 +609,12 @@ ScriptsOnlyBuild:
     className: Wobble
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CookieRotator
+  - hash:
+      serializedVersion: 2
       Hash: ce669872a2be11bc686ea22961d8a3bb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -738,7 +753,7 @@ ScriptsOnlyBuild:
     className: FixedJoystick
   - hash:
       serializedVersion: 2
-      Hash: 5b29aa9571b7a3ff89c5f16e9f683f3b
+      Hash: 72dbb15d0e9e5c29d76a31a5bf0e40b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_Glass
@@ -754,6 +769,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 88ac0ce6872390b4750af746c038d59d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DropSpawner
   - hash:
       serializedVersion: 2
       Hash: ee0cef6caaac8ae485bfa82f000f0f7b
@@ -840,23 +861,11 @@ ScriptsOnlyBuild:
     className: GameManager
   - hash:
       serializedVersion: 2
-      Hash: 9623fb2567f694fc4b685845e6731d04
+      Hash: 8261e6b2f1ad650459e293b7f7409e90
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: DropSpawner
-  - hash:
-      serializedVersion: 2
-      Hash: 5d4237c630df32f32be6b75ed03e4757
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BombRotator
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CookieRotator
+    className: CameraShake
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level 03.unity
-  playerPath: C:/Users/Megan/Documents/GitHub/Iso_Killer/Iso_Milk_V1.apk
+  playerPath: C:/Users/Megan/Documents/GitHub/Iso_Killer/Iso_Milk_V2.apk
